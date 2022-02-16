@@ -1,3 +1,9 @@
+
+
+.jumbotron {
+  background-image: url("./images/hero-img.png");
+}
+
 .App {
   text-align: center;
 }
