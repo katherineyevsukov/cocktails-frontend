@@ -33,7 +33,7 @@ function Login() {
           Check me out
         </label>
       </div>
-      <button type="submit" class="btn btn-primary">
+      <button  type="submit" class="btn btn-primary">
         Submit
       </button>
     </form>

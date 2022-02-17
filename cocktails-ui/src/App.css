@@ -1,4 +1,7 @@
-
+.btn-primary {
+  background-color: rgb(60, 57, 57);
+  border: 1px solid whitesmoke;
+}
 /* .App {
   text-align: center;
 }
