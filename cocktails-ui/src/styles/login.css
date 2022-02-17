@@ -1,8 +1,9 @@
 .login {
     margin: 0 auto;
     width: 60%;
-    border: 1px solid whitesmoke;
-    padding: 1em;
+    border:5px solid whitesmoke;
+    border-style: ridge;
+    padding: 1.5em;
     margin-top: 5em;
     color: whitesmoke;
     display: flex;
