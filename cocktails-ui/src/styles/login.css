@@ -1,7 +1,10 @@
 .login {
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     border: 1px solid pink;
     padding: 1em;
     margin-top: 5em;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
 }
