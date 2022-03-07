@@ -1,6 +1,6 @@
 import "./App.css";
 import { Button, Alert } from "react-bootstrap";
-import Login from './components/Login'
+import Landing from './components/Landing'
 import heroImg from "./images/hero-img.jpg";
 import { API_URL } from '../src/config'
 import axios from "axios";
@@ -15,7 +15,7 @@ function App() {
           alt="bartender wearing a white shirt and black apron standing at a well-stocked bar stirring a cocktail"
         />
       </header>
-        <Login />
+        <Landing />
         {/* <Alert variant="secondary">This is a button</Alert>
         <Button>hello</Button> */}
       
