@@ -1,16 +1,31 @@
-import './../styles/login.css'
+import "./../styles/login.css";
+import React, { useState } from "react";
+
+const initialLoginValues = {
+  email: "",
+  password: "",
+};
 
 function Login() {
+  const [formValues, setFormValues] = useState(initialLoginValues);
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    console.log(formValues)
+  };
   return (
     <form className="login">
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
+        <label htmlFor="emailInput" className="form-label">
           Email address
         </label>
         <input
+          name="email"
           type="email"
           className="form-control"
-          id="exampleInputEmail1"
+          id="emailInput"
+          value={formValues.email}
+          onChange={handleChange}
           aria-describedby="emailHelp"
         />
         <div id="emailHelp" className="form-text">
@@ -18,22 +33,29 @@ function Login() {
         </div>
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
+        <label htmlFor="passwordInput" className="form-label">
           Password
         </label>
         <input
+          name="password"
           type="password"
           className="form-control"
-          id="exampleInputPassword1"
+          id="passwordInput"
+          value={formValues.password}
+          onChange={handleChange}
         />
       </div>
       <div className="mb-3 form-check">
-        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="exampleCheck1"
+        />
         <label className="form-check-label" htmlFor="exampleCheck1">
           Check me out
         </label>
       </div>
-      <button  type="submit" className="btn btn-primary shadow">
+      <button type="submit" className="btn btn-primary shadow">
         Submit
       </button>
     </form>
