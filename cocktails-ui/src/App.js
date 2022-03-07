@@ -1,7 +1,7 @@
 import "./App.css";
 import { Button, Alert } from "react-bootstrap";
 import Login from './components/Login'
-import heroImg from "./images/hero-img.png";
+import heroImg from "./images/hero-img.jpg";
 
 function App() {
   return (
