@@ -1,3 +1,5 @@
+import { LOGIN_SUCCESS, LOGIN_START, LOGIN_FAIL } from './../actions/authActions'
+
 const user = JSON.parse(localStorage.getItem("user"))
 const initialState = user ? {
     isLoggedin: true, isLoading: false, user
