@@ -8,7 +8,7 @@ export function useFormFields(initialState) {
     function(event) {
       setFields({
         ...fields,
-        [event.target.id]: event.target.value
+        [event.target.name]: event.target.value
       });
     }
   ];

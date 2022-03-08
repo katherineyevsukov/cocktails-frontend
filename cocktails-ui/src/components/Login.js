@@ -1,5 +1,7 @@
 import "./../styles/login.css";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import {useFormFields} from './../utils/useFormFields'
+import { login } from './../services/authServices'
 
 const initialLoginValues = {
   email: "",
@@ -7,12 +9,13 @@ const initialLoginValues = {
 };
 
 function Login() {
-  const [formValues, setFormValues] = useState(initialLoginValues);
-
-  const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-    console.log(formValues)
-  };
+  const [fields, setFields] = useFormFields(initialLoginValues);
+  // useEffect(() => {
+  //   login('kat@kat.com', 'password').then(res => {
+  //     console.log(res)
+  //   })
+  // }, [])
+  
   return (
     <form className="login">
       <div className="mb-3">
@@ -24,8 +27,8 @@ function Login() {
           type="email"
           className="form-control"
           id="emailInput"
-          value={formValues.email}
-          onChange={handleChange}
+          value={fields.email}
+          onChange={setFields}
           aria-describedby="emailHelp"
         />
         <div id="emailHelp" className="form-text">
@@ -41,8 +44,8 @@ function Login() {
           type="password"
           className="form-control"
           id="passwordInput"
-          value={formValues.password}
-          onChange={handleChange}
+          value={fields.password}
+          onChange={setFields}
         />
       </div>
       <div className="mb-3 form-check">
