@@ -5,9 +5,9 @@ const login = (email, password) => {
    return axios.post(`${API_URL}/auth/login`, {email, password})
     .then(res => {
         localStorage.setItem("user", JSON.stringify(res.data.token))
-        return res.data
+        return res
     }).catch(err => {
-        console.error(err)
+        return err
     })
 }
 

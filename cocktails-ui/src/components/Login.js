@@ -13,6 +13,7 @@ const initialLoginValues = {
 function Login({ user, isLoading, isLoggedIn, loginUser }) {
   const [fields, setFields] = useFormFields(initialLoginValues);
   
+  console.log(user)
   // useEffect(() => {
   //   login('kat@kat.com', 'password').then(res => {
   //     console.log(res)
@@ -70,16 +71,16 @@ function Login({ user, isLoading, isLoggedIn, loginUser }) {
         Submit
       </button>
       {isLoading ? <div>Loading</div> : null}
-      {user ? <div>{user.message}</div> : null}
+      {user ? <div>{user.first_name}</div> : null}
     </form>
   );
 }
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
-    isLoggedIn: state.isLoggedIn,
-    isLoading: state.isLoading
+    user: state.authState.user,
+    isLoggedIn: state.authState.isLoggedIn,
+    isLoading: state.authState.isLoading
   }
 }
 

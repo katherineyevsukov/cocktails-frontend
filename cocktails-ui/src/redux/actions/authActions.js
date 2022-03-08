@@ -12,7 +12,8 @@ export const loginUser = (username, password) => (dispatch) => {
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
-      dispatch(loginFail(err.message));
+        console.log('err', err)
+      dispatch(loginFail(err.prodMessage));
     });
 };
 
