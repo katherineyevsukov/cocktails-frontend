@@ -1,23 +1,31 @@
 import "./../styles/login.css";
-import React, { useEffect } from "react";
+import React from "react";
 import {useFormFields} from './../utils/useFormFields'
-import { login } from './../services/authServices'
+import { connect } from 'react-redux';
+import { loginUser } from './../redux/actions/authActions'
+
 
 const initialLoginValues = {
   email: "",
   password: "",
 };
 
-function Login() {
+function Login({ user, isLoading, isLoggedIn, loginUser }) {
   const [fields, setFields] = useFormFields(initialLoginValues);
+  
   // useEffect(() => {
   //   login('kat@kat.com', 'password').then(res => {
   //     console.log(res)
   //   })
   // }, [])
   
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    loginUser(fields.email, fields.password)
+  }
+
   return (
-    <form className="login">
+    <form className="login" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="emailInput" className="form-label">
           Email address
@@ -58,11 +66,21 @@ function Login() {
           Check me out
         </label>
       </div>
-      <button type="submit" className="btn btn-primary shadow">
+      <button type="submit" className="btn btn-primary shadow" onClick={handleSubmit}>
         Submit
       </button>
+      {isLoading ? <div>Loading</div> : null}
+      {user ? <div>{user.message}</div> : null}
     </form>
   );
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    isLoggedIn: state.isLoggedIn,
+    isLoading: state.isLoading
+  }
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);

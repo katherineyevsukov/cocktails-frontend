@@ -8,6 +8,7 @@ export const loginUser = (username, password) => (dispatch) => {
   dispatch(loginStart());
   login(username, password)
     .then((res) => {
+        console.log(res.data)
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
@@ -24,5 +25,5 @@ export const loginSuccess = (data) => {
 };
 
 export const loginFail = (error) => {
-  return { type: FETCH_FAIL, payload: error };
+  return { type: LOGIN_FAIL, payload: error };
 };
