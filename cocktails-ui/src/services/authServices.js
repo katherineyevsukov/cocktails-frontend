@@ -6,8 +6,6 @@ const login = (email, password) => {
     .then(res => {
         localStorage.setItem("user", JSON.stringify(res.data.token))
         return res
-    }).catch(err => {
-        return err
     })
 }
 

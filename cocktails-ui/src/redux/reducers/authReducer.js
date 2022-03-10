@@ -17,15 +17,17 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isLoggedin: true,
-                user: payload.user,
-                isLoading: false
+                user: payload.token,
+                isLoading: false,
+                authMessage: payload.message,
             }
         case LOGIN_FAIL: 
             return {
                 ...state,
                 isLoggedin: false,
                 user: null,
-                isLoading: false
+                isLoading: false,
+                authMessage: payload.message,
             }
         default:
             return state;
