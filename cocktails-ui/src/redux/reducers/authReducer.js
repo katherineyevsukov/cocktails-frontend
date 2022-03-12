@@ -23,6 +23,9 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        isLoggedin: false,
+        user: null,
+        authMessage: null
       };
     case LOGIN_SUCCESS:
       return {
@@ -33,6 +36,30 @@ export default function authReducer(state = initialState, action) {
         authMessage: payload.message,
       };
     case LOGIN_FAIL:
+      return {
+        ...state,
+        isLoggedin: false,
+        user: null,
+        isLoading: false,
+        authMessage: payload.message,
+      };
+      case SIGNUP_START:
+      return {
+        ...state,
+        isLoading: true,
+        isLoggedin: false,
+        user: null,
+        authMessage: null
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isLoggedin: false,
+        user: null,
+        isLoading: false,
+        authMessage: payload.message,
+      };
+    case SIGNUP_FAIL:
       return {
         ...state,
         isLoggedin: false,
