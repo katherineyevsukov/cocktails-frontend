@@ -27,7 +27,7 @@ export const signupUser = (registrationBody) => (dispatch) => {
       dispatch(signupSuccess(res.data));
     })
     .catch((err) => {
-        console.log('err', err)
+        console.log('err', err.response.data.devMessage)
       dispatch(signupFail(err.response.data.prodMessage));
     });
 };

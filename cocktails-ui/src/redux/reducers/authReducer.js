@@ -13,15 +13,15 @@ const initialState = user
       isLoggedin: true,
       isLoading: false,
       user,
-      successMessage: null,
-      errorMessage: null,
+      authSuccessMessage: null,
+      authErrorMessage: null,
     }
   : {
       isLoggedin: false,
       isLoading: false,
       user: null,
-      successMessage: null,
-      errorMessage: null,
+      authSuccessMessage: null,
+      authErrorMessage: null,
     };
 
 export default function authReducer(state = initialState, action) {
@@ -33,8 +33,8 @@ export default function authReducer(state = initialState, action) {
         isLoading: true,
         isLoggedin: false,
         user: null,
-        successMessage: null,
-        errorMessage: null,
+        authSuccessMessage: null,
+        authErrorMessage: null,
       };
     case LOGIN_SUCCESS:
       return {
@@ -42,8 +42,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: true,
         user: payload.token,
         isLoading: false,
-        successMessage: payload.message,
-        errorMessage: null,
+        authSuccessMessage: payload.message,
+        authErrorMessage: null,
       };
     case LOGIN_FAIL:
       return {
@@ -51,8 +51,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        errorMessage: payload.message,
-        successMessage: null,
+        authErrorMessage: payload.message,
+        authSuccessMessage: null,
       };
     case SIGNUP_START:
       return {
@@ -60,8 +60,8 @@ export default function authReducer(state = initialState, action) {
         isLoading: true,
         isLoggedin: false,
         user: null,
-        errorMessage: null,
-        successMessage: null,
+        authErrorMessage: null,
+        authSuccessMessage: null,
       };
     case SIGNUP_SUCCESS:
       return {
@@ -69,8 +69,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        successMessage: payload.message,
-        errorMessage: null,
+        authSuccessMessage: payload.message,
+        authErrorMessage: null,
       };
     case SIGNUP_FAIL:
       return {
@@ -78,8 +78,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        errorMessage: payload.message,
-        successMessage: null,
+        authErrorMessage: payload.message,
+        authSuccessMessage: null,
       };
     default:
       return state;

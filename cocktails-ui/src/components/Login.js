@@ -10,7 +10,7 @@ const initialLoginValues = {
   password: "",
 };
 
-function Login({ message, isLoading, isLoggedIn, loginUser, setSignup }) {
+function Login({ errorMessage, successMessage, isLoading, isLoggedIn, loginUser, setSignup }) {
   const [fields, setFields] = useFormFields(initialLoginValues);
   
   // useEffect(() => {
@@ -67,11 +67,12 @@ function Login({ message, isLoading, isLoggedIn, loginUser, setSignup }) {
           Check me out
         </label>
       </div>
-      <button type="submit" className="btn btn-primary shadow" onClick={handleSubmit}>
+      <button type="submit" className="btn btn-primary shadow">
         Submit
       </button>
       {isLoading ? <div>Loading</div> : null}
-      {message ? <div>{message}</div> : null}
+      {errorMessage ? <div>{errorMessage}</div> : null}
+      {successMessage ? <div>{successMessage}</div> : null}
       <div onClick={() => setSignup(true)}>Don't have an account yet? Click to sign up!</div>
     </form>
     
@@ -81,7 +82,8 @@ function Login({ message, isLoading, isLoggedIn, loginUser, setSignup }) {
 
 const mapStateToProps = state => {
   return {
-    message: state.authState.authMessage,
+    errorMessage: state.authState.authErrorMessage,
+    successMessage: state.authState.authSuccessMessage,
     isLoggedIn: state.authState.isLoggedIn,
     isLoading: state.authState.isLoading
   }

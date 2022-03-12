@@ -10,7 +10,13 @@ const initialSignupValues = {
   phone: "",
 };
 
-function Signup({ setSignup, signupUser, isLoading, message }) {
+function Signup({
+  setSignup,
+  signupUser,
+  isLoading,
+  errorMessage,
+  successMessage,
+}) {
   const [fields, setFields] = useFormFields(initialSignupValues);
 
   const handleSubmit = (e) => {
@@ -103,12 +109,12 @@ function Signup({ setSignup, signupUser, isLoading, message }) {
         <button
           type="submit"
           className="btn btn-primary shadow"
-          //   onClick={handleSubmit}
         >
           Submit
         </button>
         {isLoading ? <div>Loading</div> : null}
-        {message ? <div>{message}</div> : null}
+        {errorMessage ? <div>{errorMessage}</div> : null}
+        {successMessage ? <div>{successMessage} Please <span onClick={() => setSignup(false)}>login</span> to continue</div> : null}
         <div onClick={() => setSignup(false)}>
           Already have an account? Click to login!
         </div>
@@ -119,7 +125,8 @@ function Signup({ setSignup, signupUser, isLoading, message }) {
 
 const mapStateToProps = (state) => {
   return {
-    message: state.authState.authMessage,
+    errorMessage: state.authState.authErrorMessage,
+    successMessage: state.authState.authSuccessMessage,
     isLoading: state.authState.isLoading,
   };
 };
