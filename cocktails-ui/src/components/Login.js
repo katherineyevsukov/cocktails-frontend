@@ -10,7 +10,7 @@ const initialLoginValues = {
   password: "",
 };
 
-function Login({ message, isLoading, isLoggedIn, loginUser }) {
+function Login({ message, isLoading, isLoggedIn, loginUser, setSignup }) {
   const [fields, setFields] = useFormFields(initialLoginValues);
   
   // useEffect(() => {
@@ -25,6 +25,7 @@ function Login({ message, isLoading, isLoggedIn, loginUser }) {
   }
 
   return (
+    <div>
     <form className="login" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="emailInput" className="form-label">
@@ -71,7 +72,10 @@ function Login({ message, isLoading, isLoggedIn, loginUser }) {
       </button>
       {isLoading ? <div>Loading</div> : null}
       {message ? <div>{message}</div> : null}
+      <div onClick={() => setSignup(true)}>Don't have an account yet? Click to sign up!</div>
     </form>
+    
+    </div>
   );
 }
 

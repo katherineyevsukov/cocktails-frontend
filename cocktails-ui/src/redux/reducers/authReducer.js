@@ -5,7 +5,7 @@ const initialState = user ? {
     isLoggedin: true, isLoading: false, user
 } : { isLoggedin: false, isLoading: false, user: null}
 
-export default function (state = initialState, action) {
+export default function authReducer(state = initialState, action) {
     const { type, payload } = action; 
     switch (type){
         case LOGIN_START: 
