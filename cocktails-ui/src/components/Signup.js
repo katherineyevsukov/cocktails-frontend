@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { signupUser } from "./../redux/actions/authActions";
 import useYupValidation from "./../utils/useYupValidation";
 import { userSchema } from "./../schemas/signupSchema";
+import { Link } from "react-router-dom";
 
 const initialSignupValues = {
   email: "",
@@ -13,7 +14,6 @@ const initialSignupValues = {
 };
 
 function Signup({
-  setSignup,
   signupUser,
   isLoading,
   errorMessage,
@@ -134,12 +134,12 @@ function Signup({
         {successMessage ? (
           <div>
             {successMessage} Please{" "}
-            <span onClick={() => setSignup(false)}>login</span> to continue
+            <Link to='login'>login</Link> to continue
           </div>
         ) : null}
-        <div onClick={() => setSignup(false)}>
+        <Link to='login'>
           Already have an account? Click to login!
-        </div>
+        </Link>
       </form>
     </div>
   );

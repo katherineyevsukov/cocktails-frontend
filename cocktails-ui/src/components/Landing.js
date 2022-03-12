@@ -1,11 +1,8 @@
 import "./../styles/landing.css";
-import React, { useState } from "react";
-import Login from "./Login";
-import Signup from "./Signup";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Landing() {
-  const [signup, setSignup] = useState(false);
 
   return (
     <>
@@ -42,10 +39,6 @@ function Landing() {
             Login
           </Link>
         </p>
-      </div>
-      <div>
-        {!signup ? <Login setSignup={setSignup} /> : null}
-        {signup ? <Signup setSignup={setSignup} /> : null}
       </div>
     </>
   );

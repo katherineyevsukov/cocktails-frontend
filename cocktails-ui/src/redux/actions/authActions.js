@@ -6,6 +6,7 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const SIGNUP_START = "SIGNUP_START";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
+export const MESSAGE_RESET = "MESSAGE_RESET"
 
 
 export const loginUser = (username, password) => (dispatch) => {
@@ -55,3 +56,7 @@ export const signupSuccess = (data) => {
 export const signupFail = (error) => {
   return { type: SIGNUP_FAIL, payload: {message: error} };
 };
+
+export const messageReset = () => {
+  return { type: MESSAGE_RESET }
+}

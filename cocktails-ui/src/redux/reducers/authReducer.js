@@ -5,6 +5,7 @@ import {
   SIGNUP_START,
   SIGNUP_SUCCESS,
   SIGNUP_FAIL,
+  MESSAGE_RESET
 } from "./../actions/authActions";
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -79,6 +80,12 @@ export default function authReducer(state = initialState, action) {
         user: null,
         isLoading: false,
         authErrorMessage: payload.message,
+        authSuccessMessage: null,
+      };
+      case MESSAGE_RESET:
+      return {
+        ...state,
+        authErrorMessage: null,
         authSuccessMessage: null,
       };
     default:
