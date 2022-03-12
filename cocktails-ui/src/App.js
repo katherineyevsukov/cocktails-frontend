@@ -1,9 +1,14 @@
 import "./App.css";
-import { Button, Alert } from "react-bootstrap";
-import Landing from "./components/Landing";
+import { Route, NavLink, Switch } from "react-router-dom";
+// import { Button, Alert } from "react-bootstrap";
+
 import heroImg from "./images/hero-img.jpg";
-import { API_URL } from "../src/config";
-import axios from "axios";
+// import { API_URL } from "../src/config";
+// import axios from "axios";
+import Landing from './../src/components/Landing'
+import Login from './../src/components/Login'
+import Signup from './../src/components/Signup'
+
 
 function App() {
   return (
@@ -15,7 +20,18 @@ function App() {
           alt="bartender wearing a white shirt and black apron standing at a well-stocked bar stirring a cocktail"
         />
       </header>
-      <Landing />
+
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Signup/>
+        </Route>
+        <Route path="/">
+          <Landing />
+        </Route>
+      </Switch>
       {/* <Alert variant="secondary">This is a button</Alert>
         <Button>hello</Button> */}
     </div>
