@@ -15,3 +15,10 @@
 .form-errors{
     color: rgba(174, 10, 10, 0.928);
 }
+
+.jumbotron {
+    margin: 10% auto;
+    width: 75%;
+    color: whitesmoke;
+    font-family: 'Noto Serif', serif;
+}
