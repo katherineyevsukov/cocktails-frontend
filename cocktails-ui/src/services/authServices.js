@@ -9,5 +9,12 @@ const login = (email, password) => {
     })
 }
 
+const signUp = (registrationBody) => {
+    return axios.post(`${API_URL}/auth/register`, registrationBody)
+     .then(res => {
+         return res
+     })
+ }
 
-export { login, }
+
+export { login, signUp }

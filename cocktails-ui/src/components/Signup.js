@@ -50,41 +50,41 @@ function Signup({ setSignup }) {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="passwordInput" className="form-label">
+          <label htmlFor="first_nameInput" className="form-label">
             First Name
           </label>
           <input
-            name="password"
-            type="password"
+            name="first_name"
+            type="first_name"
             className="form-control"
-            id="passwordInput"
-            value={fields.password}
+            id="first_nameInput"
+            value={fields.first_name}
             onChange={setFields}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="passwordInput" className="form-label">
+          <label htmlFor="last_nameInput" className="form-label">
             Last Name
           </label>
           <input
-            name="password"
-            type="password"
+            name="last_name"
+            type="last_name"
             className="form-control"
-            id="passwordInput"
-            value={fields.password}
+            id="last_nameInput"
+            value={fields.last_name}
             onChange={setFields}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="passwordInput" className="form-label">
+          <label htmlFor="phoneInput" className="form-label">
             Phone Number
           </label>
           <input
-            name="password"
-            type="password"
+            name="phone"
+            type="phone"
             className="form-control"
-            id="passwordInput"
-            value={fields.password}
+            id="phoneInput"
+            value={fields.phone}
             onChange={setFields}
           />
         </div>
