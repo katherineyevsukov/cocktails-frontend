@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { signupUser } from "./../redux/actions/authActions";
 import useYupValidation from "./../utils/useYupValidation";
 import { userSchema } from "./../schemas/signupSchema";
-import { useEffect } from "react";
 
 const initialSignupValues = {
   email: "",
