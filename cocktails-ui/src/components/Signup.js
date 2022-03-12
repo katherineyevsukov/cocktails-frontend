@@ -135,7 +135,9 @@ function Signup({
           Submit
         </button>
         {isLoading ? <div>Loading</div> : null}
-        {errorMessage ? <div>{errorMessage}</div> : null}
+        {errorMessage ?  <div id="formErrors" className="form-text form-errors">
+          {errorMessage}
+        </div> : null}
         {successMessage ? (
           <div>
             {successMessage} Please{" "}

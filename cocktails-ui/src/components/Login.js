@@ -75,7 +75,9 @@ function Login({
           Submit
         </button>
         {isLoading ? <div>Loading</div> : null}
-        {errorMessage ? <div>{errorMessage}</div> : null}
+        {errorMessage ? <div id="formErrors" className="form-text form-errors">
+          {errorMessage}
+        </div> : null}
         {successMessage ? <div>{successMessage}</div> : null}
         <Link to="/register" onClick={leavePage}>
           Don't have an account yet? Click to sign up!

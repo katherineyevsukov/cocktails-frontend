@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, NavLink, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 // import { Button, Alert } from "react-bootstrap";
 
 import heroImg from "./images/hero-img.jpg";
