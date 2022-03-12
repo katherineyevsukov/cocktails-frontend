@@ -1,19 +1,34 @@
-import { login } from "./../../services/authServices";
+import { login, signUp } from "./../../services/authServices";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const SIGNUP_START = "SIGNUP_START";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
+
 
 export const loginUser = (username, password) => (dispatch) => {
   dispatch(loginStart());
   login(username, password)
     .then((res) => {
-        console.log('here')
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
-        console.log('err', err)
+      console.log('err', err)
       dispatch(loginFail(err.response.data.prodMessage));
+    });
+};
+
+export const signupUser = (registrationBody) => (dispatch) => {
+  dispatch(signupStart());
+  signUp(registrationBody)
+    .then((res) => {
+      dispatch(signupSuccess(res.data));
+    })
+    .catch((err) => {
+        console.log('err', err)
+      dispatch(signupFail(err.response.data.prodMessage));
     });
 };
 
@@ -27,4 +42,16 @@ export const loginSuccess = (data) => {
 
 export const loginFail = (error) => {
   return { type: LOGIN_FAIL, payload: {message: error} };
+};
+
+export const signupStart = () => {
+  return { type: SIGNUP_START };
+};
+
+export const signupSuccess = (data) => {
+  return { type: SIGNUP_SUCCESS, payload: {message: data.message}};
+};
+
+export const signupFail = (error) => {
+  return { type: SIGNUP_FAIL, payload: {message: error} };
 };
