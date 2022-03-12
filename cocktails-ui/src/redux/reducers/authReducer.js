@@ -13,8 +13,16 @@ const initialState = user
       isLoggedin: true,
       isLoading: false,
       user,
+      successMessage: null,
+      errorMessage: null,
     }
-  : { isLoggedin: false, isLoading: false, user: null };
+  : {
+      isLoggedin: false,
+      isLoading: false,
+      user: null,
+      successMessage: null,
+      errorMessage: null,
+    };
 
 export default function authReducer(state = initialState, action) {
   const { type, payload } = action;
@@ -25,7 +33,8 @@ export default function authReducer(state = initialState, action) {
         isLoading: true,
         isLoggedin: false,
         user: null,
-        authMessage: null
+        successMessage: null,
+        errorMessage: null,
       };
     case LOGIN_SUCCESS:
       return {
@@ -33,7 +42,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: true,
         user: payload.token,
         isLoading: false,
-        authMessage: payload.message,
+        successMessage: payload.message,
+        errorMessage: null,
       };
     case LOGIN_FAIL:
       return {
@@ -41,15 +51,17 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        authMessage: payload.message,
+        errorMessage: payload.message,
+        successMessage: null,
       };
-      case SIGNUP_START:
+    case SIGNUP_START:
       return {
         ...state,
         isLoading: true,
         isLoggedin: false,
         user: null,
-        authMessage: null
+        errorMessage: null,
+        successMessage: null,
       };
     case SIGNUP_SUCCESS:
       return {
@@ -57,7 +69,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        authMessage: payload.message,
+        successMessage: payload.message,
+        errorMessage: null,
       };
     case SIGNUP_FAIL:
       return {
@@ -65,7 +78,8 @@ export default function authReducer(state = initialState, action) {
         isLoggedin: false,
         user: null,
         isLoading: false,
-        authMessage: payload.message,
+        errorMessage: payload.message,
+        successMessage: null,
       };
     default:
       return state;
