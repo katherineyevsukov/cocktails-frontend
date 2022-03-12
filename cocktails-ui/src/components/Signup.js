@@ -1,6 +1,9 @@
 import { useFormFields } from "./../utils/useFormFields";
 import { connect } from "react-redux";
 import { signupUser } from "./../redux/actions/authActions";
+import useYupValidation from "./../utils/useYupValidation";
+import { userSchema } from "./../schemas/signupSchema";
+import { useEffect } from "react";
 
 const initialSignupValues = {
   email: "",
@@ -18,10 +21,13 @@ function Signup({
   successMessage,
 }) {
   const [fields, setFields] = useFormFields(initialSignupValues);
+  const [formErrors, validate] = useYupValidation(userSchema);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signupUser(fields);
+    validate(fields, () => {
+      signupUser(fields);
+    });
   };
 
   return (
@@ -43,6 +49,9 @@ function Signup({
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
           </div>
+          <div id="formErrors" className="form-text form-errors">
+            {formErrors.email}
+          </div>
         </div>
         <div className="mb-3">
           <label htmlFor="passwordInput" className="form-label">
@@ -57,6 +66,9 @@ function Signup({
             onChange={setFields}
           />
         </div>
+        <div id="formErrors" className="form-text form-errors">
+          {formErrors.password}
+        </div>
         <div className="mb-3">
           <label htmlFor="first_nameInput" className="form-label">
             First Name
@@ -69,6 +81,9 @@ function Signup({
             value={fields.first_name}
             onChange={setFields}
           />
+        </div>
+        <div id="formErrors" className="form-text form-errors">
+          {formErrors.first_name}
         </div>
         <div className="mb-3">
           <label htmlFor="last_nameInput" className="form-label">
@@ -83,6 +98,9 @@ function Signup({
             onChange={setFields}
           />
         </div>
+        <div id="formErrors" className="form-text form-errors">
+          {formErrors.last_name}
+        </div>
         <div className="mb-3">
           <label htmlFor="phoneInput" className="form-label">
             Phone Number
@@ -96,6 +114,9 @@ function Signup({
             onChange={setFields}
           />
         </div>
+        <div id="formErrors" className="form-text form-errors">
+          {formErrors.phone}
+        </div>
         <div className="mb-3 form-check">
           <input
             type="checkbox"
@@ -106,15 +127,17 @@ function Signup({
             Check me out
           </label>
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary shadow"
-        >
+        <button type="submit" className="btn btn-primary shadow">
           Submit
         </button>
         {isLoading ? <div>Loading</div> : null}
         {errorMessage ? <div>{errorMessage}</div> : null}
-        {successMessage ? <div>{successMessage} Please <span onClick={() => setSignup(false)}>login</span> to continue</div> : null}
+        {successMessage ? (
+          <div>
+            {successMessage} Please{" "}
+            <span onClick={() => setSignup(false)}>login</span> to continue
+          </div>
+        ) : null}
         <div onClick={() => setSignup(false)}>
           Already have an account? Click to login!
         </div>

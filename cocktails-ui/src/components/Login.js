@@ -1,4 +1,4 @@
-import "./../styles/login.css";
+import "./../styles/landing.css";
 import React from "react";
 import {useFormFields} from './../utils/useFormFields'
 import { connect } from 'react-redux';
