@@ -1,7 +1,7 @@
 const globalVars = {
-    API_URL: process.env.REACT_APP_API_URL
-}
+  API_URL: process.env.REACT_APP_API_URL,
+};
 
-const { API_URL } = globalVars
+const { API_URL } = globalVars;
 
-export { API_URL }
+export { API_URL };

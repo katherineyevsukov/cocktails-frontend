@@ -1,6 +1,6 @@
 import { useFormFields } from "./../utils/useFormFields";
 import { connect } from "react-redux";
-import { signupUser } from "./../redux/actions/authActions";
+import { signupUser, messageReset } from "./../redux/actions/authActions";
 import useYupValidation from "./../utils/useYupValidation";
 import { userSchema } from "./../schemas/signupSchema";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ function Signup({
   isLoading,
   errorMessage,
   successMessage,
+  messageReset,
 }) {
   const [fields, setFields] = useFormFields(initialSignupValues);
   const [formErrors, validate] = useYupValidation(userSchema);
@@ -27,6 +28,10 @@ function Signup({
     validate(fields, () => {
       signupUser(fields);
     });
+  };
+
+  const leavePage = () => {
+    messageReset();
   };
 
   return (
@@ -134,10 +139,13 @@ function Signup({
         {successMessage ? (
           <div>
             {successMessage} Please{" "}
-            <Link to='login'>login</Link> to continue
+            <Link to="login" onClick={leavePage}>
+              login
+            </Link>{" "}
+            to continue
           </div>
         ) : null}
-        <Link to='login'>
+        <Link to="login" onClick={leavePage}>
           Already have an account? Click to login!
         </Link>
       </form>
@@ -153,4 +161,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { signupUser })(Signup);
+export default connect(mapStateToProps, { signupUser, messageReset })(Signup);

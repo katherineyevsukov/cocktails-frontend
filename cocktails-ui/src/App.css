@@ -3,9 +3,13 @@
 .btn-primary {
   background-color: rgb(60, 57, 57);
   border: none;
-} 
+}
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
   color: whitesmoke;
   background-color: rgb(94, 10, 10); /*set the color you want here*/
 }

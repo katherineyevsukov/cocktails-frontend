@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormFields } from "./../utils/useFormFields";
 import { connect } from "react-redux";
-import { loginUser } from "./../redux/actions/authActions";
+import { loginUser, messageReset } from "./../redux/actions/authActions";
 import { Link } from "react-router-dom";
 
 const initialLoginValues = {
@@ -15,12 +15,17 @@ function Login({
   isLoading,
   isLoggedIn,
   loginUser,
+  messageReset,
 }) {
   const [fields, setFields] = useFormFields(initialLoginValues);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     loginUser(fields.email, fields.password);
+  };
+
+  const leavePage = () => {
+    messageReset();
   };
 
   return (
@@ -72,7 +77,9 @@ function Login({
         {isLoading ? <div>Loading</div> : null}
         {errorMessage ? <div>{errorMessage}</div> : null}
         {successMessage ? <div>{successMessage}</div> : null}
-        <Link to="/register">Don't have an account yet? Click to sign up!</Link>
+        <Link to="/register" onClick={leavePage}>
+          Don't have an account yet? Click to sign up!
+        </Link>
       </form>
     </div>
   );
@@ -87,4 +94,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginUser, messageReset })(Login);

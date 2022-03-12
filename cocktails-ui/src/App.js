@@ -5,10 +5,9 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import heroImg from "./images/hero-img.jpg";
 // import { API_URL } from "../src/config";
 // import axios from "axios";
-import Landing from './../src/components/Landing'
-import Login from './../src/components/Login'
-import Signup from './../src/components/Signup'
-
+import Landing from "./../src/components/Landing";
+import Login from "./../src/components/Login";
+import Signup from "./../src/components/Signup";
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
           <Login />
         </Route>
         <Route path="/register">
-          <Signup/>
+          <Signup />
         </Route>
         <Route path="/">
           <Landing />
