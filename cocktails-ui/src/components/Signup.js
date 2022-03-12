@@ -1,4 +1,6 @@
 import { useFormFields } from "./../utils/useFormFields";
+import { connect } from "react-redux";
+import { signupUser } from "./../redux/actions/authActions";
 
 const initialSignupValues = {
   email: "",
@@ -8,17 +10,17 @@ const initialSignupValues = {
   phone: "",
 };
 
-function Signup({ setSignup }) {
+function Signup({ setSignup, signupUser, isLoading, message }) {
   const [fields, setFields] = useFormFields(initialSignupValues);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   loginUser(fields.email, fields.password)
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signupUser(fields);
+  };
 
   return (
     <div>
-      <form className="login">
+      <form className="login" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="emailInput" className="form-label">
             Email address
@@ -101,16 +103,25 @@ function Signup({ setSignup }) {
         <button
           type="submit"
           className="btn btn-primary shadow"
-        //   onClick={handleSubmit}
+          //   onClick={handleSubmit}
         >
           Submit
         </button>
-        {/* {isLoading ? <div>Loading</div> : null}
-        {message ? <div>{message}</div> : null} */}
-        <div onClick={() => setSignup(false)}>Already have an account? Click to login!</div>
+        {isLoading ? <div>Loading</div> : null}
+        {message ? <div>{message}</div> : null}
+        <div onClick={() => setSignup(false)}>
+          Already have an account? Click to login!
+        </div>
       </form>
     </div>
   );
 }
 
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    message: state.authState.authMessage,
+    isLoading: state.authState.isLoading,
+  };
+};
+
+export default connect(mapStateToProps, { signupUser })(Signup);
