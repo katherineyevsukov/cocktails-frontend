@@ -148,7 +148,7 @@ function Signup({
           </div>
         ) : null}
         <Link to="login" onClick={leavePage}>
-          Already have an account? Click to login!
+          Take me back to login
         </Link>
       </form>
     </div>

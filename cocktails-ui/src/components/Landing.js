@@ -12,10 +12,9 @@ function Landing() {
           calling extra attention to featured content or information.
         </p>
         <hr class="my-4"></hr>
-        <p>
-          It uses utility classes for typography and spacing to space content
-          out within the larger container.
-        </p>
+        {/* <p>
+          Get started now! Click below to register:
+        </p> */}
         <p class="lead">
           <Link
             to="/register"
@@ -26,8 +25,7 @@ function Landing() {
           </Link>
         </p>
         <p>
-          It uses utility classes for typography and spacing to space content
-          out within the larger container.
+          Already have an account? Click below to login:
         </p>
         <p class="lead">
           <Link
