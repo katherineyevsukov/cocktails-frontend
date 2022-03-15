@@ -1,6 +1,8 @@
 import CocktailCard from './CocktailCard'
 
 function Home(){
+    
+
     return (
         <CocktailCard />
     )
