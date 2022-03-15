@@ -20,14 +20,12 @@ function Landing() {
           created by other users.
         </p>
         <p class="lead">
-          Are you a bar manager? Organize your menus with us! With Handshaken,
-          a manager can create bars, invite their staff to join it and easily
+          Are you a bar manager? Organize your menus with us! With Handshaken, a
+          manager can create bars, invite their staff to join it and easily
           share and update bar-exclusive recipes and menus.
         </p>
         <hr class="my-4"></hr>
-        {/* <p>
-          Get started now! Click below to register:
-        </p> */}
+        <p>Get started now! Click below to register:</p>
         <p class="lead">
           <Link
             to="/register"
