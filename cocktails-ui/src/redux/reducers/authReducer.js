@@ -8,7 +8,7 @@ import {
   MESSAGE_RESET,
 } from "./../actions/authActions";
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("token"));
 const initialState = user
   ? {
       isLoggedin: true,
