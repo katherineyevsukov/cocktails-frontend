@@ -8,6 +8,7 @@ import heroImg from "./images/hero-img.jpg";
 import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
+import Home from "./components/Home"
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       </header>
 
       <Switch>
+      <Route path="/home">
+          <Home />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
