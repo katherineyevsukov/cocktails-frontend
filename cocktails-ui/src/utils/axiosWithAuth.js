@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL } from "../config";
 
 const axiosWithAuth = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("handshaken_token");
 
   return axios.create({
     headers: {

@@ -5,7 +5,7 @@ const login = (email, password) => {
   return axios
     .post(`${API_URL}/auth/login`, { email, password })
     .then((res) => {
-      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("handshaken_token", JSON.stringify(res.data.token));
       return res;
     });
 };
@@ -18,4 +18,10 @@ const signUp = (registrationBody) => {
     });
 };
 
-export { login, signUp };
+const verifyToken = () => {
+  return axios.get(`${API_URL}/auth/verify`).then((res) => {
+    return res;
+  });
+};
+
+export { login, signUp, verifyToken };

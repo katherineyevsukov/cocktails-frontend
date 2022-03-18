@@ -8,7 +8,7 @@ import {
   MESSAGE_RESET,
 } from "./../actions/authActions";
 
-const user = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("handshaken_stoken"));
 const initialState = user
   ? {
       isLoggedin: true,
