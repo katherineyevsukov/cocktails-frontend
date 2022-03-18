@@ -5,23 +5,22 @@ import { Route, Switch } from "react-router-dom";
 import heroImg from "./images/hero-img.jpg";
 // import { API_URL } from "../src/config";
 // import axios from "axios";
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
-import Home from "./components/Home"
+import Home from "./components/Home";
 import { connect } from "react-redux";
+import { getUser } from './redux/actions/authActions'
 
-// verifyToken().then(res => {
-//   console.log(res)
-//   user = res.data.subject
-// })
-
-function App() {
-
+function App({isLoggedIn, user, getUser}) {
+  
   useEffect(() => {
+    if (!user){
+      getUser()
+    }
+  }, [user]);
 
-  })
   return (
     <div className="App">
       <header className="App-header">
@@ -33,7 +32,7 @@ function App() {
       </header>
 
       <Switch>
-      <Route path="/home">
+        <Route path="/home">
           <Home />
         </Route>
         <Route path="/login">
@@ -51,5 +50,11 @@ function App() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.authState.isLoggedIn,
+    user: state.authState.user,
+  };
+};
 
-export default App;
+export default connect(mapStateToProps, { getUser })(App);

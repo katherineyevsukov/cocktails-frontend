@@ -28,7 +28,9 @@ function Login({
   const leavePage = () => {
     messageReset();
   };
+
   console.log(user)
+
   return (
     <div>
       <form className="login" onSubmit={handleSubmit}>

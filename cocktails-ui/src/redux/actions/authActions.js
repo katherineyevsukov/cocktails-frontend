@@ -17,7 +17,9 @@ export const loginUser = (username, password) => (dispatch) => {
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
-      dispatch(loginFail(err.response ? err.response.data.prodMessage : err.message));
+      dispatch(
+        loginFail(err.response ? err.response.data.prodMessage : err.message)
+      );
     });
 };
 
@@ -33,14 +35,14 @@ export const signupUser = (registrationBody) => (dispatch) => {
 };
 
 export const getUser = () => (dispatch) => {
-  verifyToken().then((res) => {
-    dispatch(getUserSuccess(res))
-  })
-  .catch(err => {
-    console.error(err)
-  })
-
-}
+  verifyToken()
+    .then((res) => {
+      dispatch(getUserSuccess(res));
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
 
 export const loginStart = () => {
   return { type: LOGIN_START };
@@ -74,5 +76,5 @@ export const messageReset = () => {
 };
 
 export const getUserSuccess = (user) => {
-  return { type: GET_USER_SUCCESS, payload: {user: user.data.subject} };
+  return { type: GET_USER_SUCCESS, payload: { user: user.data.subject } };
 };
