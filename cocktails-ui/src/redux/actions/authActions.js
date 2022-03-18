@@ -17,7 +17,6 @@ export const loginUser = (username, password) => (dispatch) => {
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
-      console.log("err", err);
       dispatch(loginFail(err.response ? err.response.data.prodMessage : err.message));
     });
 };
@@ -29,7 +28,6 @@ export const signupUser = (registrationBody) => (dispatch) => {
       dispatch(signupSuccess(res.data));
     })
     .catch((err) => {
-      console.log("err", err.response.data.devMessage);
       dispatch(signupFail(err.response.data.prodMessage));
     });
 };
@@ -51,7 +49,7 @@ export const loginStart = () => {
 export const loginSuccess = (data) => {
   return {
     type: LOGIN_SUCCESS,
-    payload: { message: data.message, token: data.token },
+    payload: { message: data.message, user: data.user_id },
   };
 };
 

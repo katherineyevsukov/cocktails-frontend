@@ -33,7 +33,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedin: true,
-        user: payload.token,
+        user: payload.user,
         isLoading: false,
         authSuccessMessage: payload.message,
         authErrorMessage: null,
