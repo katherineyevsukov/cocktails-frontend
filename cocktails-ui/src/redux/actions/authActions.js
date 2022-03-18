@@ -1,4 +1,4 @@
-import { login, signUp } from "./../../services/authServices";
+import { login, signUp, verifyToken } from "./../../services/authServices";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -7,6 +7,8 @@ export const SIGNUP_START = "SIGNUP_START";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
 export const MESSAGE_RESET = "MESSAGE_RESET";
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
+export const GET_USER_FAIL = "GET_USER_FAIL";
 
 export const loginUser = (username, password) => (dispatch) => {
   dispatch(loginStart());
@@ -31,6 +33,16 @@ export const signupUser = (registrationBody) => (dispatch) => {
       dispatch(signupFail(err.response.data.prodMessage));
     });
 };
+
+export const getUser = () => (dispatch) => {
+  verifyToken().then((res) => {
+    dispatch(getUserSuccess(res))
+  })
+  .catch(err => {
+    console.error(err)
+  })
+
+}
 
 export const loginStart = () => {
   return { type: LOGIN_START };
@@ -61,4 +73,8 @@ export const signupFail = (error) => {
 
 export const messageReset = () => {
   return { type: MESSAGE_RESET };
+};
+
+export const getUserSuccess = (user) => {
+  return { type: GET_USER_SUCCESS, payload: {user: user.data.subject} };
 };

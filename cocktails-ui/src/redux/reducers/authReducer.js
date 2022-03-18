@@ -6,26 +6,11 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAIL,
   MESSAGE_RESET,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
 } from "./../actions/authActions";
 
-const { verifyToken } = require('./../../services/authServices')
-
-let user
-
-verifyToken().then(res => {
-  console.log(res)
-  user = res.data.subject
-})
-
-const initialState = user
-  ? {
-      isLoggedin: true,
-      isLoading: false,
-      user,
-      authSuccessMessage: null,
-      authErrorMessage: null,
-    }
-  : {
+const initialState =  {
       isLoggedin: false,
       isLoading: false,
       user: null,
