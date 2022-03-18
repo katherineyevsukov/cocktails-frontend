@@ -8,7 +8,15 @@ import {
   MESSAGE_RESET,
 } from "./../actions/authActions";
 
-const user = JSON.parse(localStorage.getItem("handshaken_stoken"));
+const { verifyToken } = require('./../../services/authServices')
+
+let user
+
+verifyToken().then(res => {
+  console.log(res)
+  user = res.data.subject
+})
+
 const initialState = user
   ? {
       isLoggedin: true,

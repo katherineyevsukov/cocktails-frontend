@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosWithAuth from './../utils/axiosWithAuth'
 import { API_URL } from "./../config";
 
 const login = (email, password) => {
@@ -19,7 +20,7 @@ const signUp = (registrationBody) => {
 };
 
 const verifyToken = () => {
-  return axios.get(`${API_URL}/auth/verify`).then((res) => {
+  return axiosWithAuth().get(`${API_URL}/auth/verify`).then((res) => {
     return res;
   });
 };

@@ -14,6 +14,7 @@ function Login({
   successMessage,
   isLoading,
   isLoggedIn,
+  user,
   loginUser,
   messageReset,
 }) {
@@ -27,7 +28,7 @@ function Login({
   const leavePage = () => {
     messageReset();
   };
-
+  console.log(user)
   return (
     <div>
       <form className="login" onSubmit={handleSubmit}>
@@ -93,6 +94,7 @@ const mapStateToProps = (state) => {
     successMessage: state.authState.authSuccessMessage,
     isLoggedIn: state.authState.isLoggedIn,
     isLoading: state.authState.isLoading,
+    user: state.authState.user
   };
 };
 
