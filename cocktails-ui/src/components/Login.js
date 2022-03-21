@@ -29,8 +29,6 @@ function Login({
     messageReset();
   };
 
-  console.log(user)
-
   return (
     <div>
       <form className="login" onSubmit={handleSubmit}>

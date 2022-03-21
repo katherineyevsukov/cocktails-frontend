@@ -19,7 +19,7 @@ function App({isLoggedIn, user, getUser}) {
     if (!user){
       getUser()
     }
-  }, [user]);
+  }, [user, getUser]);
 
   return (
     <div className="App">
