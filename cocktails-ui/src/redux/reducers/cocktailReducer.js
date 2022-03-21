@@ -2,6 +2,7 @@ import { FETCH_USER_COCKTAILS_START, FETCH_USER_COCKTAILS_SUCCESS, FETCH_USER_CO
 
 const initialState = {
     cocktails: [],
+    cocktailsLoading: false,
     cocktailIngredients: [],
     cocktailSteps: [],
     cocktailPhoto: ''
