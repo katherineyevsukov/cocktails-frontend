@@ -1,8 +1,5 @@
 function CocktailCard({cocktail, ingredients, steps}) {
 
-    // return (
-    //     <p>hello world</p>
-    // )
   return (
     <>
 
