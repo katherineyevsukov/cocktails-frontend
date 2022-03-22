@@ -4,14 +4,21 @@ import { fetchUserCocktails } from "../redux/actions/cocktailActions";
 import CocktailCard from "./CocktailCard";
 import "./../styles/cocktails.css";
 
-function CocktailList({ fetchUserCocktails, cocktails, loading, error }) {
+function CocktailList({ fetchUserCocktails, cocktails, loading, error, user }) {
   console.log(cocktails);
 
   return (
-    <div className="cocktail-list">
-      {cocktails.map((cocktail) => {
-        return <CocktailCard key={cocktail.id} cocktail={cocktail} />;
-      })}
+    <div>
+      <div className='user-cocktails'>
+      <hr></hr>
+        <h3>{user.first_name}'s Cocktails</h3>
+        <hr></hr>
+      </div>
+      <div className="cocktail-list">
+        {cocktails.map((cocktail) => {
+          return <CocktailCard key={cocktail.id} cocktail={cocktail} />;
+        })}
+      </div>
     </div>
   );
 }

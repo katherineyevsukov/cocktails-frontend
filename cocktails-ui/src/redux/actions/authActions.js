@@ -11,9 +11,11 @@ export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAIL = "GET_USER_FAIL";
 
 export const loginUser = (username, password) => (dispatch) => {
+  
   dispatch(loginStart());
   login(username, password)
     .then((res) => {
+      console.log(res)
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
@@ -51,7 +53,7 @@ export const loginStart = () => {
 export const loginSuccess = (data) => {
   return {
     type: LOGIN_SUCCESS,
-    payload: { message: data.message, user: data.user_id },
+    payload: { message: data.message, user: data.user },
   };
 };
 

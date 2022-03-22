@@ -8,7 +8,7 @@ function Home({ fetchUserCocktails, user }) {
     fetchUserCocktails(user);
   });
 
-  return <CocktailList />;
+  return <CocktailList user={user}/>;
 }
 
 const mapStateToProps = (state) => {

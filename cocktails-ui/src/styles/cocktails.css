@@ -15,3 +15,13 @@ h5.card-title{
 .card.cocktail {
     margin-bottom: 1em;
 }
+
+.user-cocktails{
+    width: 90%;
+    margin: 1em auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Engravers Bold";
+    font-weight: 300;
+    font-size: 2rem;
+}
