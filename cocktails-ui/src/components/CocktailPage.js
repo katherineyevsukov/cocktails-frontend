@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 function CocktailPage({ cocktail }){
     return (
         <>
-        <CocktailCard />
+        <CocktailCard cocktail={cocktail} />
         </>
     )
 }
