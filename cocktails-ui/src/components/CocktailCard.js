@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import "./../styles/cocktails.css";
 import { connect } from "react-redux";
 import { setSelectedCocktail } from "./../redux/actions/cocktailActions";
+import CocktailDetails from "./CocktailDetails";
 
 function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
   const { name, photo, glass_type, garnish, id } = cocktail;
+
+  console.log('hello', ingredients, steps)
 
   const handleClick = () => {
     setSelectedCocktail(cocktail);
@@ -19,6 +22,7 @@ function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
         </div>
 
         <div className="card-body">
+          {(ingredients && steps) ? <CocktailDetails /> : null}
           <Link
             to={`/cocktail/${id}`}
             className="btn btn-primary btn-lg card-link"

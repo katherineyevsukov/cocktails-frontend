@@ -55,7 +55,6 @@ export const fetchUserCocktails = (user_id) => (dispatch) => {
   };
   
   export const fetchRecipeSuccess = (data) => {
-    console.log(data)
     return {
       type: FETCH_RECIPE_SUCCESS,
       payload: { ingredients: data[0], steps: data[1] },
