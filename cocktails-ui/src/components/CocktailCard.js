@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import "./../styles/cocktails.css";
 
 function CocktailCard({ cocktail, ingredients, steps }) {
   const { name, photo, glass_type, garnish, id } = cocktail;

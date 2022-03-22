@@ -1,0 +1,17 @@
+.cocktail-list {
+    /* width: fit-content; */
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 75%;
+}
+
+h5.card-title{
+    color: black;
+}
+
+.card.cocktail {
+    margin-bottom: 1em;
+}
