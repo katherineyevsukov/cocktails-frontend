@@ -1,12 +1,13 @@
 function CocktailCard({cocktail, ingredients, steps}) {
-
+  console.log(cocktail)
+  const  {name, photo, glass_type, garnish, id} = cocktail
   return (
     <>
 
     <div className="card cocktail" style={{width: 25+'rem'}}>
-      <img className="card-img-top" src="https://images.unsplash.com/photo-1582056509381-33e11b85733f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=80" alt="Manhattan" />
+      <img className="card-img-top" src={photo} />
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
+        <h5 className="card-title">{name}</h5>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">Cras justo odio</li>
@@ -27,7 +28,7 @@ function CocktailCard({cocktail, ingredients, steps}) {
       </div>
     </div>
 
-    <div className="card cocktail" style={{width: 25+'rem'}}>
+    {/* <div className="card cocktail" style={{width: 25+'rem'}}>
       <img className="card-img-top" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" alt="Margarita" />
       <div className="card-body">
         <h5 className="card-title">Card title</h5>
@@ -49,7 +50,7 @@ function CocktailCard({cocktail, ingredients, steps}) {
           Another link
         </a>
       </div>
-    </div>
+    </div> */}
 
     </>
   );
