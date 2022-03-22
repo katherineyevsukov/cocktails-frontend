@@ -1,6 +1,7 @@
-function CocktailDetails({glass_type, garnish, steps, ingredients}) {
+function CocktailDetails({cocktail, steps, ingredients}) {
   return (
     <>
+    <p>Created By: {cocktail.first_name} {cocktail.last_name} </p>
       <ul className="list-group list-group-flush">
         {ingredients.map(ing => {
         return <li className="list-group-item">{ing.quantity} {ing.name}</li>
