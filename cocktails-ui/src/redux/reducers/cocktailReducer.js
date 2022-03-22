@@ -3,6 +3,9 @@ import {
   FETCH_USER_COCKTAILS_SUCCESS,
   FETCH_USER_COCKTAILS_FAIL,
   SET_COCKTAIL,
+  FETCH_RECIPE_START,
+  FETCH_RECIPE_FAIL,
+  FETCH_RECIPE_SUCCESS,
 } from "./../actions/cocktailActions";
 
 const initialState = {
@@ -35,11 +38,30 @@ export default function cocktailReducer(state = initialState, action) {
         cocktailsLoading: false,
         cocktailErrorMessage: payload.message,
       };
-      case SET_COCKTAIL:
+    case SET_COCKTAIL:
       return {
         ...state,
-        cocktail: payload.cocktail
+        cocktail: payload.cocktail,
       };
+    case FETCH_RECIPE_START:
+      return {
+        ...state,
+        cocktailsLoading: true,
+      };
+    case FETCH_RECIPE_SUCCESS:
+      return {
+        ...state,
+        cocktailsLoading: false,
+        cocktailIngredients: payload.ingredients,
+        cocktailSteps: payload.ingredients,
+      };
+    case FETCH_RECIPE_FAIL:
+      return {
+        ...state,
+        cocktailsLoading: false,
+        cocktailErrorMessage: payload.message,
+      };
+
     default:
       return state;
   }
