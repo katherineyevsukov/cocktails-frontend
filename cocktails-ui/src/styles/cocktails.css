@@ -8,9 +8,9 @@
     max-width: 75%;
 }
 
-/* h5.card-title{
-    color: whitesmoke;
-} */
+h5.card-title{
+    text-align: center;
+}
 
 .card.cocktail {
     margin-bottom: 1em;
@@ -20,6 +20,11 @@
     text-transform: uppercase;
     font-family: "Engravers Bold";
     
+}
+
+.card-link{
+    margin: 0 auto;
+    display: block;
 }
 
 /* a.card-link{
