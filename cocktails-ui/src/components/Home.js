@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchUserCocktails } from "../redux/actions/cocktailActions";
 
 function Home({ fetchUserCocktails, user}){
-    console.log(user)
+  
     useEffect(() => {
         fetchUserCocktails(user)
     })

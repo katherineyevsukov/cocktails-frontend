@@ -19,21 +19,19 @@ function Login({
   loginUser,
   messageReset,
 }) {
-
-  console.log(user, isLoggedIn)
   const [fields, setFields] = useFormFields(initialLoginValues);
 
   const history = useHistory();
 
   useEffect(() => {
-    if (isLoggedIn && user){
-      history.push('/home')
+    if (isLoggedIn && user) {
+      history.push("/home");
     }
-  }, [isLoggedIn, history, user])
+  }, [isLoggedIn, history, user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loginUser(fields.email, fields.password)
+    loginUser(fields.email, fields.password);
   };
 
   const leavePage = () => {

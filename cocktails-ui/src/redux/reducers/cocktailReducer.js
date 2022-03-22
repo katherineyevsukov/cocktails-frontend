@@ -6,7 +6,6 @@ const initialState = {
     cocktailErrorMessage: '',
     cocktailIngredients: [],
     cocktailSteps: [],
-    cocktailPhoto: ''
 }
 
 
@@ -17,6 +16,7 @@ export default function cocktailReducer(state = initialState, action) {
         return {
           ...state,
           cocktailsLoading: true,
+          cocktails: [],
         };
       case FETCH_USER_COCKTAILS_SUCCESS:
         return {
