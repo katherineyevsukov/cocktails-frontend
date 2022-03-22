@@ -10,7 +10,7 @@ import {
 } from "./../actions/authActions";
 
 const initialState =  {
-      isLoggedin: false,
+      isLoggedIn: false,
       isLoading: false,
       user: null,
       authSuccessMessage: null,
@@ -24,7 +24,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
-        isLoggedin: false,
+        isLoggedIn: false,
         user: null,
         authSuccessMessage: null,
         authErrorMessage: null,
@@ -32,7 +32,7 @@ export default function authReducer(state = initialState, action) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        isLoggedin: true,
+        isLoggedIn: true,
         user: payload.user,
         isLoading: false,
         authSuccessMessage: payload.message,
@@ -41,7 +41,7 @@ export default function authReducer(state = initialState, action) {
     case LOGIN_FAIL:
       return {
         ...state,
-        isLoggedin: false,
+        isLoggedIn: false,
         user: null,
         isLoading: false,
         authErrorMessage: payload.message,
@@ -51,7 +51,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
-        isLoggedin: false,
+        isLoggedIn: false,
         user: null,
         authErrorMessage: null,
         authSuccessMessage: null,
@@ -59,7 +59,7 @@ export default function authReducer(state = initialState, action) {
     case SIGNUP_SUCCESS:
       return {
         ...state,
-        isLoggedin: false,
+        isLoggedIn: false,
         user: null,
         isLoading: false,
         authSuccessMessage: payload.message,
@@ -68,7 +68,7 @@ export default function authReducer(state = initialState, action) {
     case SIGNUP_FAIL:
       return {
         ...state,
-        isLoggedin: false,
+        isLoggedIn: false,
         user: null,
         isLoading: false,
         authErrorMessage: payload.message,
@@ -83,7 +83,7 @@ export default function authReducer(state = initialState, action) {
       case GET_USER_SUCCESS:
       return {
         ...state,
-        isLoggedin: true,
+        isLoggedIn: true,
         user: payload.user,
         isLoading: false,
         authErrorMessage: null,

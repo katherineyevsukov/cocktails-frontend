@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormFields } from "./../utils/useFormFields";
 import { connect } from "react-redux";
 import { loginUser, messageReset } from "./../redux/actions/authActions";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const initialLoginValues = {
   email: "",
@@ -18,11 +19,21 @@ function Login({
   loginUser,
   messageReset,
 }) {
+
+  console.log(user, isLoggedIn)
   const [fields, setFields] = useFormFields(initialLoginValues);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (isLoggedIn && user){
+      history.push('/home')
+    }
+  }, [isLoggedIn, history, user])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loginUser(fields.email, fields.password);
+    loginUser(fields.email, fields.password)
   };
 
   const leavePage = () => {
@@ -76,9 +87,11 @@ function Login({
           Submit
         </button>
         {isLoading ? <div>Loading</div> : null}
-        {errorMessage ? <div id="formErrors" className="form-text form-errors">
-          {errorMessage}
-        </div> : null}
+        {errorMessage ? (
+          <div id="formErrors" className="form-text form-errors">
+            {errorMessage}
+          </div>
+        ) : null}
         {successMessage ? <div>{successMessage}</div> : null}
         <Link to="/register" onClick={leavePage}>
           Don't have an account yet? Click to sign up!
@@ -94,7 +107,7 @@ const mapStateToProps = (state) => {
     successMessage: state.authState.authSuccessMessage,
     isLoggedIn: state.authState.isLoggedIn,
     isLoading: state.authState.isLoading,
-    user: state.authState.user
+    user: state.authState.user,
   };
 };
 

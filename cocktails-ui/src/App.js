@@ -15,11 +15,11 @@ import { getUser } from './redux/actions/authActions'
 
 function App({isLoggedIn, user, getUser}) {
   
-  useEffect(() => {
-    if (!user){
-      getUser()
-    }
-  }, [user, getUser]);
+  // useEffect(() => {
+  //   if (!user){
+  //     getUser()
+  //   }
+  // }, [user, getUser]);
 
   return (
     <div className="App">
