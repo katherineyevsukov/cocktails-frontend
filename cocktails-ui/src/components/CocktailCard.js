@@ -12,7 +12,7 @@ function CocktailCard({ cocktail, ingredients, steps }) {
         </div>
 
         <div className="card-body">
-          <Link to={`/cocktail/${id}`} className="card-link">
+          <Link to={`/cocktail/${id}`} className="btn btn-primary btn-lg card-link">
             See Recipe
           </Link>
           {/* <a href="#" className="card-link">

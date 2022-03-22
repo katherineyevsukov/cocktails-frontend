@@ -8,13 +8,26 @@
     max-width: 75%;
 }
 
-h5.card-title{
-    color: black;
-}
+/* h5.card-title{
+    color: whitesmoke;
+} */
 
 .card.cocktail {
     margin-bottom: 1em;
+    background-color: black;
+    border: 3px groove whitesmoke;
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-family: "Engravers Bold";
+    
 }
+
+/* a.card-link{
+    text-decoration: none;
+    background-color: rgb(94, 10, 10);
+    color: whitesmoke;
+    padding: 1em;
+} */
 
 .user-cocktails{
     width: 90%;
