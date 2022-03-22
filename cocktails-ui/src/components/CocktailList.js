@@ -5,7 +5,6 @@ import CocktailCard from "./CocktailCard";
 import "./../styles/cocktails.css";
 
 function CocktailList({ fetchUserCocktails, cocktails, loading, error, user }) {
-  console.log(cocktails);
 
   return (
     <div>

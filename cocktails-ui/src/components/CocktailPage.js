@@ -1,9 +1,14 @@
 import CocktailCard from './CocktailCard'
 import { connect } from "react-redux";
+import { fetchRecipe } from "./../redux/actions/cocktailActions"
+import { useEffect } from "react"
 
-function CocktailPage({ cocktail }){
+function CocktailPage({ cocktail, fetchRecipe }){
 
-    
+    useEffect(() => {
+        fetchRecipe(cocktail.id)
+    }, [cocktail, fetchRecipe])
+
     return (
         <>
         <CocktailCard cocktail={cocktail} />
@@ -19,4 +24,4 @@ const mapStateToProps = (state) => {
     };
   };
 
-export default connect(mapStateToProps)(CocktailPage)
+export default connect(mapStateToProps, { fetchRecipe })(CocktailPage)
