@@ -3,6 +3,7 @@ import { getUserCocktails } from './../../services/cocktailServices'
 export const FETCH_USER_COCKTAILS_START = "FETCH_USER_COCKTAILS_START";
 export const FETCH_USER_COCKTAILS_SUCCESS = "FETCH_USER_COCKTAILS_SUCCESS";
 export const FETCH_USER_COCKTAILS_FAIL = "FETCH_USER_COCKTAILS_FAIL";
+export const SET_COCKTAIL = "SET_COCKTAIL"
 
 export const fetchUserCocktails = (user_id) => (dispatch) => {
     dispatch(fetchCocktailsStart())
@@ -29,3 +30,7 @@ export const fetchUserCocktails = (user_id) => (dispatch) => {
   export const fetchCocktailsFail = (error) => {
     return { type: FETCH_USER_COCKTAILS_FAIL, payload: { message: error } };
   };
+
+  export const setSelectedCocktail = (cocktail) => {
+    return { type: SET_COCKTAIL, payload: {cocktail}}
+  }
