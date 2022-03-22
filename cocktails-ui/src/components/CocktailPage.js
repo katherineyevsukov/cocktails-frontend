@@ -1,11 +1,20 @@
 import CocktailCard from './CocktailCard'
-import CocktailDetails from './CocktailDetails'
+import { connect } from "react-redux";
 
-function CocktailPage(){
+function CocktailPage({ cocktail }){
     return (
         <>
         <CocktailCard />
-        <CocktailDetails />
         </>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+      cocktail: state.cocktailState.cocktail,
+      loading: state.cocktailState.cocktailsLoading,
+      error: state.cocktailState.cocktailErrorMessage,
+    };
+  };
+
+export default connect(mapStateToProps)(CocktailPage)

@@ -10,6 +10,7 @@ import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
 import Home from "./components/Home";
+import CocktailPage from "./components/CocktailPage"
 import { connect } from "react-redux";
 import { getUser } from './redux/actions/authActions'
 
@@ -32,6 +33,9 @@ function App({isLoggedIn, user, getUser}) {
       </header>
 
       <Switch>
+      <Route path="/cocktail/:id">
+          <CocktailPage />
+        </Route>
         <Route path="/home">
           <Home />
         </Route>

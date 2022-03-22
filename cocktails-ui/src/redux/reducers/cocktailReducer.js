@@ -4,6 +4,7 @@ const initialState = {
     cocktails: [],
     cocktailsLoading: false,
     cocktailErrorMessage: '',
+    cocktail: {},
     cocktailIngredients: [],
     cocktailSteps: [],
 }
