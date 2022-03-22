@@ -53,7 +53,7 @@ export default function cocktailReducer(state = initialState, action) {
         ...state,
         cocktailsLoading: false,
         cocktailIngredients: payload.ingredients,
-        cocktailSteps: payload.ingredients,
+        cocktailSteps: payload.steps,
       };
     case FETCH_RECIPE_FAIL:
       return {

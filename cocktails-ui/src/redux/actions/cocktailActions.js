@@ -23,7 +23,7 @@ export const fetchUserCocktails = (user_id) => (dispatch) => {
     dispatch(fetchRecipeStart())
     getStepsAndIngredients(id)
     .then(res => {
-      dispatch(fetchRecipeSuccess(res.data))
+      dispatch(fetchRecipeSuccess(res))
     })
     .catch(err => {
       console.error(err)
@@ -55,6 +55,7 @@ export const fetchUserCocktails = (user_id) => (dispatch) => {
   };
   
   export const fetchRecipeSuccess = (data) => {
+    console.log(data)
     return {
       type: FETCH_RECIPE_SUCCESS,
       payload: { ingredients: data[0], steps: data[1] },
