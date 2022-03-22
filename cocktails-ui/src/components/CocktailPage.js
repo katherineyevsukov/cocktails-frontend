@@ -2,6 +2,8 @@ import CocktailCard from './CocktailCard'
 import { connect } from "react-redux";
 
 function CocktailPage({ cocktail }){
+
+    
     return (
         <>
         <CocktailCard cocktail={cocktail} />
