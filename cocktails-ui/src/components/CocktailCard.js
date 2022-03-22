@@ -22,7 +22,7 @@ function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
         </div>
 
         <div className="card-body">
-          {(ingredients && steps) ? <CocktailDetails /> : null}
+          {(ingredients && steps) ? <CocktailDetails glass={glass_type} garnish={garnish} steps={steps} ingredients={ingredients}/> : null}
           <Link
             to={`/cocktail/${id}`}
             className="btn btn-primary btn-lg card-link"
