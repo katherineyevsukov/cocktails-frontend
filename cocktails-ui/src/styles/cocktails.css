@@ -42,3 +42,9 @@ h5.card-title {
   font-weight: 300;
   font-size: 2rem;
 }
+
+.single-cocktail {
+ display: flex;
+ justify-content: center;
+ margin-top: 1em;
+}

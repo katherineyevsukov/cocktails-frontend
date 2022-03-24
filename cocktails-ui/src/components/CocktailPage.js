@@ -2,6 +2,7 @@ import CocktailCard from './CocktailCard'
 import { connect } from "react-redux";
 import { fetchRecipe } from "./../redux/actions/cocktailActions"
 import { useEffect } from "react"
+import "./../styles/cocktails.css";
 
 function CocktailPage({ cocktail, fetchRecipe, steps, ingredients }){
 
@@ -10,9 +11,9 @@ function CocktailPage({ cocktail, fetchRecipe, steps, ingredients }){
     }, [cocktail, fetchRecipe])
 
     return (
-        <>
+        <div className="single-cocktail">
         <CocktailCard cocktail={cocktail} steps={steps} ingredients={ingredients} />
-        </>
+        </div>
     )
 }
 
