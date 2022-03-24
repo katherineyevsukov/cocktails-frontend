@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUserCocktails } from "../redux/actions/cocktailActions";
 import CocktailCard from "./CocktailCard";

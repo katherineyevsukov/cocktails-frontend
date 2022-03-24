@@ -5,7 +5,7 @@ import { setSelectedCocktail } from "./../redux/actions/cocktailActions";
 import CocktailDetails from "./CocktailDetails";
 
 function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
-  const { name, photo, glass_type, garnish, id } = cocktail;
+  const { name, photo, id } = cocktail;
 
   console.log('hello', ingredients, steps)
 
@@ -16,7 +16,7 @@ function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
   return (
     <>
       <div className="card cocktail" style={{ width: 25 + "rem" }}>
-        <img className="card-img-top" src={photo} />
+        <img className="card-img-top" src={photo} alt={name} />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
         </div>

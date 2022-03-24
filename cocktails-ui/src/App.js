@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import heroImg from "./images/hero-img.jpg";
 // import { API_URL } from "../src/config";
 // import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
