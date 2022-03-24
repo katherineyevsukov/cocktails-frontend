@@ -10,6 +10,7 @@ import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
 import Home from "./components/Home";
+import NavBar from "./components/NavBar"
 import CocktailPage from "./components/CocktailPage"
 import { connect } from "react-redux";
 import { getUser } from './redux/actions/authActions'
@@ -32,6 +33,7 @@ function App({isLoggedIn, user, getUser}) {
           alt="bartender wearing a white shirt and black apron standing at a well-stocked bar stirring a cocktail"
         />
       </header>
+      <NavBar />
 
       <Switch>
       <Route path="/cocktail/:id">
