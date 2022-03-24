@@ -1,8 +1,14 @@
 import "./../styles/landing.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-function Landing() {
+function Landing({ isLoggedIn }) {
+  const history = useHistory()
+
+  if (isLoggedIn){
+    history.push('/home')
+  }
+  
   return (
     <>
       <div className="jumbotron">

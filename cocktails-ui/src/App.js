@@ -22,6 +22,7 @@ function App({isLoggedIn, user, getUser}) {
   //   }
   // }, [user, getUser]);
 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -46,7 +47,7 @@ function App({isLoggedIn, user, getUser}) {
           <Signup />
         </Route>
         <Route path="/">
-          <Landing />
+          <Landing isLoggedIn={isLoggedIn}/>
         </Route>
       </Switch>
       {/* <Alert variant="secondary">This is a button</Alert>
