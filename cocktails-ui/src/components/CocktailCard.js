@@ -7,8 +7,6 @@ import CocktailDetails from "./CocktailDetails";
 function CocktailCard({ cocktail, ingredients, steps, setSelectedCocktail }) {
   const { name, photo, id } = cocktail;
 
-  console.log('hello', ingredients, steps)
-
   const handleClick = () => {
     setSelectedCocktail(cocktail);
   };
