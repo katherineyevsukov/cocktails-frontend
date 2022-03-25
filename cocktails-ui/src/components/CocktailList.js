@@ -6,7 +6,8 @@ import "./../styles/cocktails.css";
 function CocktailList({ fetchUserCocktails, cocktails, loading, error, user }) {
 
   return (
-    <div>
+    // <div>
+    <>
       <div className='user-cocktails'>
       <hr></hr>
         <h3>{user.first_name}'s Cocktails</h3>
@@ -17,7 +18,8 @@ function CocktailList({ fetchUserCocktails, cocktails, loading, error, user }) {
           return <CocktailCard key={cocktail.id} cocktail={cocktail} />;
         })}
       </div>
-    </div>
+      </>
+    // </div> 
   );
 }
 

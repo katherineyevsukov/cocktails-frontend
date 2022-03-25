@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 75%;
+  max-width: 90%;
 }
 
 h5.card-title {
