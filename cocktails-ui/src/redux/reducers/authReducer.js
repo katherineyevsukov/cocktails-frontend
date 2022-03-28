@@ -95,10 +95,6 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: true,
-        user: payload.user,
-        isLoading: false,
-        authErrorMessage: null,
-        authSuccessMessage: null,
       };
       case TOKEN_FAIL:
       return {

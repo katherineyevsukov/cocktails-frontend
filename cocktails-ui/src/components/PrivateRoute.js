@@ -2,10 +2,15 @@ import { Route, Redirect } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { verifyToken } from "./../services/authServices";
 import { connect } from "react-redux";
-import { loginFail, loginSuccess } from './../redux/actions/authActions'
+import { tokenFail, tokenSuccess } from "./../redux/actions/authActions";
 
-
-const PrivateRoute = ({ component: Component,loginFail, loginSuccess, isLoggedIn, ...rest }) => {
+const PrivateRoute = ({
+  component: Component,
+  tokenFail,
+  tokenSuccess,
+  isLoggedIn,
+  ...rest
+}) => {
   const [isTokenValidated, setIsTokenValidated] = useState(false);
 
   useEffect(() => {
@@ -13,29 +18,24 @@ const PrivateRoute = ({ component: Component,loginFail, loginSuccess, isLoggedIn
     if (token) {
       verifyToken()
         .then((res) => {
-          console.log(res);
-          return res;
-        })
-        .then((res) => {
           if (res.status === 200) {
-            console.log("hello");
-            loginSuccess()
+            tokenSuccess(res.data);
           }
         })
         .catch((err) => {
-          console.log(err);
-          loginFail()
+          tokenFail();
           localStorage.removeItem("handshaken_token");
         })
         .then(() => setIsTokenValidated(true));
     } else {
       setIsTokenValidated(true); // in case there is no token
+      tokenFail();
     }
-  }, [loginSuccess, loginFail]);
+  }, [tokenSuccess, tokenFail]);
 
   if (!isTokenValidated) {
     return <div> Loading...</div>;
-  } // or some kind of loading animation
+  } //NEED TO ADD LOADING ANIMATION
 
   return (
     <Route
@@ -48,9 +48,11 @@ const PrivateRoute = ({ component: Component,loginFail, loginSuccess, isLoggedIn
 };
 
 const mapStateToProps = (state) => {
-    return {
-      isLoggedIn: state.authState.isLoggedIn,
-    };
+  return {
+    isLoggedIn: state.authState.isLoggedIn,
   };
+};
 
-export default connect (mapStateToProps, {loginFail, loginSuccess})(PrivateRoute);
+export default connect(mapStateToProps, { tokenFail, tokenSuccess })(
+  PrivateRoute
+);
