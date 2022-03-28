@@ -6,6 +6,7 @@ import heroImg from "./images/hero-img.jpg";
 // import { API_URL } from "../src/config";
 // import axios from "axios";
 import React from "react";
+import PrivateRoute from './components/PrivateRoute'
 import Landing from "./../src/components/Landing";
 import Login from "./../src/components/Login";
 import Signup from "./../src/components/Signup";
@@ -39,9 +40,7 @@ function App({isLoggedIn, user, getUser}) {
       <Route path="/cocktail/:id">
           <CocktailPage />
         </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
+        <PrivateRoute path="/home" component={Home} />
         <Route path="/login">
           <Login />
         </Route>
