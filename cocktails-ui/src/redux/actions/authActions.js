@@ -9,6 +9,8 @@ export const SIGNUP_FAIL = "SIGNUP_FAIL";
 export const MESSAGE_RESET = "MESSAGE_RESET";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAIL = "GET_USER_FAIL";
+export const TOKEN_SUCCESS = "TOKEN_SUCCESS"
+export const TOKEN_FAIL = "TOKEN_FAIL"
 
 export const loginUser = (username, password) => (dispatch) => {
   
@@ -79,4 +81,16 @@ export const messageReset = () => {
 
 export const getUserSuccess = (user) => {
   return { type: GET_USER_SUCCESS, payload: { user: user.data.subject } };
+};
+
+export const tokenSuccess = (data) => {
+  return {
+    type: TOKEN_SUCCESS,
+    payload: { user: data.subject },
+  };
+};
+export const tokenFail = () => {
+  return {
+    type: TOKEN_FAIL
+  };
 };
