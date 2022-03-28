@@ -7,6 +7,8 @@ import {
   SIGNUP_FAIL,
   MESSAGE_RESET,
   GET_USER_SUCCESS,
+  TOKEN_FAIL,
+  TOKEN_SUCCESS
 } from "./../actions/authActions";
 
 const initialState =  {
@@ -85,6 +87,24 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isLoggedIn: true,
         user: payload.user,
+        isLoading: false,
+        authErrorMessage: null,
+        authSuccessMessage: null,
+      };
+      case TOKEN_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: payload.user,
+        isLoading: false,
+        authErrorMessage: null,
+        authSuccessMessage: null,
+      };
+      case TOKEN_FAIL:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
         isLoading: false,
         authErrorMessage: null,
         authSuccessMessage: null,
